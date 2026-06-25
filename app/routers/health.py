@@ -1,9 +1,9 @@
-"""Health, version, and LLM connectivity endpoints.
+﻿"""Health, version, and LLM connectivity endpoints.
 
 Route structure:
-  GET /health    → API liveness check
-  GET /version   → Current API version
-  GET /ping-llm  → Gemini API reachability + latency
+  GET /health    â†’ API liveness check
+  GET /version   â†’ Current API version
+  GET /ping-llm  â†’ Gemini API reachability + latency
 """
 
 import time
@@ -113,13 +113,13 @@ async def ping_llm(
     except httpx.ConnectError as exc:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Cannot connect to Gemini API — check network or base URL",
+            detail="Cannot connect to Gemini API â€” check network or base URL",
         ) from exc
 
     except httpx.HTTPStatusError as exc:
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
-            detail=f"Gemini API error: HTTP {exc.response.status_code}",
+            detail=f"Gemini API error: HTTP {exc.response.status_code} — {exc.response.text[:200]}",
         ) from exc
 
     except LLMResponseParseError as exc:
