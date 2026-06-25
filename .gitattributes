@@ -1,0 +1,6 @@
+﻿# Force LF for all files (Linux/Docker deploy compatibility)
+* text=auto eol=lf
+
+# Windows batch files need CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
