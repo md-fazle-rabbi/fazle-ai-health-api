@@ -218,3 +218,5 @@ This project is part of my production AI engineering portfolio.
 
 **Md. Fazle Rabbi**
 AI Backend Engineer · FastAPI · LangGraph · MCP · OWASP LLM:2025 + Agentic:2026
+
+---
