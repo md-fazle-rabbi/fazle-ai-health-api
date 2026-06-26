@@ -3,7 +3,6 @@ services:
     name: fazle-ai-health-api
     runtime: docker
     plan: free
-
     healthCheckPath: /health
 
     envVars:
@@ -17,5 +16,13 @@ services:
         value: gemini-2.5-flash
       - key: LLM_TIMEOUT_SECONDS
         value: '10'
+      - key: LANGFUSE_BASE_URL
+        value: https://cloud.langfuse.com
       - key: GEMINI_API_KEY
+        sync: false
+      - key: LANGFUSE_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: LANGFUSE_PROJECT_ID
         sync: false
