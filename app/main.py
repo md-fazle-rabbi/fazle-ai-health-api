@@ -7,9 +7,10 @@ from typing import AsyncGenerator
 
 import httpx
 from fastapi import FastAPI, Request, Response
+from fastapi.responses import RedirectResponse  # Added for root redirection
 
 from app.config import get_settings
-from app.routers import health, metrics, mcp_info
+from app.routers import health, mcp_info, metrics
 from app.tracing import langfuse
 
 TRACKED_PATHS = {"/health", "/version", "/ping-llm", "/metrics", "/mcp-info"}
@@ -20,10 +21,10 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """Manage startup and shutdown of all shared resources."""
 
     # ── STARTUP ──────────────────────────────────────────────
-    # Shared HTTP client — TCP connection pool reuse।
+    # Shared HTTP client — TCP connection pool reuse
     app.state.http_client = httpx.AsyncClient()
 
-    # In-memory metrics store।
+    # In-memory metrics store
     app.state.metrics_store = defaultdict(
         lambda: {"total_calls": 0, "latencies_ms": [], "error_count": 0}
     )
@@ -33,6 +34,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     # ── SHUTDOWN ─────────────────────────────────────────────
     await app.state.http_client.aclose()
 
+    # Flush Langfuse async export queue before shutdown
     langfuse.flush()
 
 
@@ -64,7 +66,7 @@ def create_app() -> FastAPI:
             store = request.app.state.metrics_store[path]
             store["total_calls"] += 1
             store["latencies_ms"].append(latency_ms)
-            # 4xx/5xx = error।
+            # 4xx/5xx = error
             if response.status_code >= 400:
                 store["error_count"] += 1
 
@@ -74,6 +76,12 @@ def create_app() -> FastAPI:
     app.include_router(health.router)
     app.include_router(metrics.router)
     app.include_router(mcp_info.router)
+
+    # ── Base Redirect ─────────────────────────────────────────
+    @app.get("/", include_in_schema=False)
+    async def redirect_to_docs():
+        """Redirect landing page visitors directly to interactive Swagger UI documentation."""
+        return RedirectResponse(url="/docs")
 
     return app
 
