@@ -97,7 +97,7 @@ Declarative MCP capability manifest for agentic integration.
 | Package Manager | uv |
 | Containerisation | Docker (multi-stage) |
 | Deploy | Render (free tier) |
-| Python | 3.12 |
+| Python | 3.14 |
 
 ---
 
@@ -138,7 +138,7 @@ fazle-ai-health-api/
 ## Local Setup
 
 ### Prerequisites
-- Python 3.14+
+- Python 3.14
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
 - Gemini API key → [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
 - Langfuse account (free) → [cloud.langfuse.com](https://cloud.langfuse.com)
@@ -210,13 +210,10 @@ This project is part of my production AI engineering portfolio.
 - LangGraph agent + MCP integration ($599 fixed)
 - OWASP LLM security audit ($450 fixed)
 
-**Profiles:** [Contra](https://contra.com/fazle_rabbi_kgl4dae3?referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&referrerUsername=fazle_rabbi_kgl4dae3)
-
 ---
 
 ## Author
 
 **Md. Fazle Rabbi**
-AI Backend Engineer · FastAPI · LangGraph · MCP · OWASP LLM:2025 + Agentic:2026
+AI Engineer · FastAPI · LangGraph · MCP · OWASP LLM:2025 + Agentic:2026
 
----
