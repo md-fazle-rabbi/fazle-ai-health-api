@@ -214,6 +214,6 @@ This project is part of my production AI engineering portfolio.
 
 ## Author
 
-**Md. Fazle Rabbi**
+**Fazle Rabbi**
 AI Engineer · FastAPI · LangGraph · MCP · OWASP LLM:2025 + Agentic:2026
 
