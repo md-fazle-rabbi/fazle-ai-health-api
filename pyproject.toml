@@ -5,7 +5,7 @@ description = "Production-grade AI Health API — freelance portfolio proof"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "fastapi[standard]>=0.139.0",
+    "fastapi[standard]>=0.139.2",
     "httpx>=0.27.0",
     "langfuse>=4.14.0",
     "pydantic-settings>=2.0",
@@ -15,7 +15,7 @@ dependencies = [
 dev = [
     "pytest>=8.0",
     "pytest-asyncio>=0.23.0",
-    "ruff>=0.15.21",
+    "ruff>=0.15.22",
 ]
 
 [tool.ruff]
