@@ -215,5 +215,6 @@ This project is part of my production AI engineering portfolio.
 ## Author
 
 **Fazle Rabbi**
-AI Engineer · FastAPI · LangGraph · MCP · OWASP LLM:2025 + Agentic:2026
+Full-Stack AI Engineer specializing in secure production AI systems.
+Contact: mfrabbi.ai@gmail.com | LinkedIn: https://www.linkedin.com/in/fazle-rabbi-ai/
 
